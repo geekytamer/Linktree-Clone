@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= username %>'s Links</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1><%= username %>'s Links</h1>
+    <ul>
+        <% links.forEach(link => { %>
+            <li><a href="<%= link.url %>" target="_blank"><%= link.title %></a></li>
+        <% }) %>
+    </ul>
+    <form action="/<%= username %>/add" method="POST">
+        <input type="text" name="title" placeholder="Link title" required>
+        <input type="url" name="url" placeholder="Link URL" required>
+        <button type="submit">Add Link</button>
+    </form>
+</body>
+</html>
